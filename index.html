@@ -1,0 +1,730 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html >
+<head>
+<title>SpringTime</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<style>
+
+* { padding:0;
+   margin:0;
+    outline:0; 
+     color: #262323;}
+body {
+  /*  background-image: url(https://images.unsplash.com/photo-1595248708728-05f4ef5b47e6?auto=format&fit=crop&q=80&w=1287&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);*/
+  /* background-color: rgb(233, 201, 191);*/
+ background-size: cover; /* Make the image cover the entire background */
+ background-repeat: no-repeat;
+    font-family: Verdana, sans-serif;
+    font-size: 11px;
+    line-height: 14px;
+    color: #262323;
+    background-color: white;
+    background-image: url(https://images.unsplash.com/photo-1501556424050-d4816356b73e?auto=format&fit=crop&q=80&w=1364&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+}
+
+input, textarea, select {
+   font-family: Verdana, sans-serif; 
+   font-size:13px; }
+textarea { overflow:hidden; }
+
+.field { border:solid 1px #d3cfc7; background:#fff; padding:5px; }
+.small-field {
+   border:solid 1px #d3cfc7; 
+  background:#fff;
+   padding:3px 1px;
+    font-size:11px; }
+
+.checkbox { 
+  width:13px;
+   height:13px; 
+   vertical-align:top;
+    position:relative; top:2px; }
+
+.button { 
+  background:#eee url(images/button.gif) repeat-x 0 0;
+   border:solid 1px #b1a874;
+   color:#7f7f7f; font-size:11px;
+    padding:2px 6px 2px 6px;
+     cursor:pointer; 
+     line-height:14px !important; }
+.button:hover { 
+  color:#333; 
+  border-color:#857b42; }
+.field:focus {
+   color:#000;
+    border-color:#857b42;}
+
+a img { border:0; }
+
+a {
+  color:#ba4c32;
+   text-decoration: underline; 
+   cursor:pointer; }
+a:hover { 
+  color:#8d341f;
+  text-decoration: none;}
+
+.left, .alignleft { 
+  float:left;
+   display:inline; }
+.right, .alignright { 
+  float:right;
+   display:inline; }
+
+.cl { 
+  font-size:0;
+   line-height:0;
+   clear:both;
+    display:block; 
+    height:0; }
+
+.al { text-align: left; }
+.ar { text-align: right; }
+.ac { text-align: center !important; }
+
+h1{
+   font-size:22px;
+    line-height:24px;
+     color:#191717;
+      font-weight: normal;}
+h1 a{
+   color:#060606;
+    text-decoration: none; }
+h2 { 
+  font-size:15px; 
+  font-weight: normal; }
+h3 {
+   font-size:12px;
+    line-height:14px;
+     font-weight: normal; }
+h3 a{ 
+  text-decoration: none; }
+.shell { 
+  width:988px; 
+  margin:0 auto; }
+
+#header { 
+  height:50px; 
+   background-color:#cc8373;
+    white-space:nowrap; }
+#header h1{ 
+  float:left;
+   display:inline;
+    padding-top:12px; }
+#top-navigation { 
+  float:right; white-space:nowrap; 
+  color:#fff;
+   padding-top:15px;
+   }
+#top-navigation a{ 
+  color:#101010; }
+#top-navigation span{ 
+  color:#dca598; }
+#top { 
+  height:53px; }
+#top-navigations {
+    display: flex;
+    padding-left: 520px;
+    align-items: center;
+    
+    text-align: center;
+    justify-content: center;
+}
+#top-navigations a {
+    display: inline-block; 
+    text-decoration: none; 
+    margin: 0 5px; 
+    padding: 5px 10px;
+    border: 2px solid #8c3521; 
+    border-radius: 5px;
+    background-color:#bc543d; 
+    color: #fff;
+    font-weight: bold;
+    padding-left: 20px;
+    height: 20px;
+    }
+  #top-navigations a:hover {
+    background-color: #0056b3; 
+  }
+   .sign-in-button {
+    background-color: #4CAF50; 
+  }
+   .log-in-button {
+    background-color: #FF5722; 
+  }
+#navigation { height:36px;
+  padding: 44px;}
+#navigation ul{ 
+  list-style-type: none;}
+#navigation ul li{ 
+  float:left;
+   display:inline;
+    margin-right:15px;}
+#navigation ul li a,
+#navigation ul li a span {
+   float:left;
+    padding:0 0 0 15px;
+    height: 50px;
+    width: 70px;
+ padding: 0 5px;
+ border-radius: 8px;
+  color: #171616;
+ font-size: small;
+}
+
+#navigation ul li a span { 
+  background-position:right 0;
+   padding:0 15px 0 0;}
+#navigation ul li a { 
+line-height:36px; color:#161615;
+ text-decoration: none;
+text-decoration: none;
+ display: flex;
+  align-items: center;
+ padding: 0 5px;
+  position: relative;}
+#navigation ul li a.active { font-size:14px; font-weight: bold;  }
+#container { padding:20px 0;}
+.small-nav { color:#978b48; padding-bottom:77px; padding-left: 50px; }
+.small-nav a{ color:#6f6636; }
+#main {}
+#content { float:left; width:750px; }
+#sidebar { float:right; width:225px; }
+.table {}
+.table th{ background: rgba(255, 255, 255, 0);  color: #262323; text-align: left; padding:7px 10px; border-bottom:solid 1px #d2d1cb;}
+.table td{  background: rgba(255, 255, 255, 0);  border-bottom:solid 1px #e0e0e0; padding:8px 10px; color: #262323; }
+.table tr.odd td{  background: rgba(255, 255, 255, 0);  }
+.table tr:hover td{  background: rgba(255, 255, 255, 0);  }
+.table a.ico{ }
+
+.box {  background: rgba(255, 255, 255, 0);  height:100%; padding:1px; margin-bottom:20px; }
+.box-head { background:#ba4c32; height:32px; color: #262323; padding: 0 10px; line-height:32px; white-space:nowrap; border-bottom:solid 1px #f7f1f1; }
+.box-head .right{ padding-top:5px; line-height:13px;}
+.box-head .right label,
+.box-head .right input { float:left; }
+.box-head .right label { padding:4px 0 0 0;}
+.box-head .right input { margin-left:5px;}
+
+.pagging { height:20px; padding:8px 10px; line-height:19px; color: #262323; }
+.pagging a{ background:url(images/pagging.gif) repeat-x 0 0; height:20px; float:left; padding:0 8px; border:solid 1px #d5d5d5; text-decoration: none;  color: #262323; margin-left:5px;  }
+.pagging a:hover { border-color:#8c3521; background:#ba4c32;  color: #262323;}
+.pagging span{ float:left; margin-left:5px; padding-top:2px; }
+
+
+a.ico {  color: #262323; font-size:10px; text-decoration: none; padding:0 0 0 14px; background-repeat:no-repeat; background-position:0 0; }
+a.ico:hover { color:#333;}
+a.del { background-image:url(images/del.gif)}
+a.edit { background-image:url(images/edit.gif); margin-left:14px;}
+
+
+.form { padding:15px 10px 5px 10px; }
+.form label{ display:block; font-weight: bold; font-size:13px; padding-bottom:4px; }
+.form label span{  color: #262323; font-weight: normal;}
+.form .field { display:block; }
+.form .inline-field .field { display:inline;}
+.form .req { font-size:13px; float:right; white-space:nowrap;  color: #262323;;
+}
+.form p{ padding-bottom:15px; }
+
+.size1 { width:716px; background: rgba(255, 255, 255, 0);  color: #262323; border:solid 1px #1a1919;}
+.size2 { width:80px; background: rgba(255, 255, 255, 0); color: #262323; border:solid 1px #1a1919;}
+.size3 { width:120px; background: rgba(255, 255, 255, 0); color: #262323; border:solid 1px #1a1919; }
+textarea.size1 { height:180px;
+  background: rgba(255, 255, 255, 0); border:solid 1px #1a1919;}
+
+.buttons { text-align: right; padding:10px; background:#1a1919;   background: rgba(255, 255, 255, 0); }
+.buttons .button{ margin-left:3px;
+}
+
+
+
+
+.add-button,
+.add-button span { float:left; height:26px; background:url(images/add-button.gif) no-repeat 0 0; padding:0 0 0 28px; }
+.add-button span { background-position:right 0; padding:0 10px 0 0; }
+.add-button { font-weight: bold; font-size:12px; color:#f6f1f1; text-decoration: none; line-height:26px; }
+.add-button:hover { color:#f7ebeb;}
+
+
+#footer { height:44px; background:url(images/footer.gif); line-height:44px; color:#0f0e0e;
+}
+#footer a{ color:#fff; }
+
+
+.msg { position:relative; padding-right:35px; margin-bottom:10px; }
+.msg p{ padding:9px 10px 9px 40px; font-size:12px; background-repeat:no-repeat; background-position:10px 5px;}
+.msg a.close{ font-size:0; line-height:0; position:absolute; top:0; right:0; width:34px; height:34px; background:url(images/close.gif); text-indent: -4000px;}
+
+.msg-ok p{ background-color:#fffac2; border:solid 1px #dbd6a2; color:#5e5c40; background-image:url(images/msg-ok.gif); }
+.msg-error p{ background-color:#f3c598; border:solid 1px #e8b084; color:#ba4c32; background-image:url(images/msg-error.gif);  }
+
+
+.box { -moz-border-radius:5px; -webkit-border-radius:5px; -moz-box-shadow: 0 0 6px #978f6c; -webkit-box-shadow: 0 0 6px #978f6c;}
+.box-head { -moz-border-radius-topleft:5px; -moz-border-radius-topright:5px; -webkit-border-top-left-radius:5px; -webkit-border-top-right-radius:5px; }
+
+.field, .button { -moz-border-radius:4px; -webkit-border-radius:4px; }
+.small-field, .button, .pagging a { -moz-border-radius:3px; -webkit-border-radius:3px; }
+
+.msg p { -moz-border-radius:6px; -webkit-border-radius:6px; }
+
+.button { -moz-box-shadow: 0 0 2px #978f6c; -webkit-box-shadow: 0 0 2px #978f6c;}
+
+#content{
+    width: 988px;
+}
+.uploader {
+    width: 1025px;}
+ .menu {
+    position: relative;
+    padding-left: 100px;
+    padding-top: 25px;
+   
+}
+.dropdown {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    cursor: pointer;
+    float: left; /* Align to the left */
+  
+    
+}
+
+
+
+
+
+
+
+
+
+
+/* Reset default styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Style the footer container */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 0;
+}
+
+/* Style the footer content sections */
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Style the individual footer sections */
+.footer-section {
+  flex: 1;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Style the heading in the sections */
+.footer-section h1 {
+  font-size: 20px;
+  margin: 0;
+  color: #ff5733;
+}
+
+/* Style the text in the sections */
+.footer-section h5 {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+/* Style the links in the "Links" section */
+.navbarr {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-media {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-media a img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Style the footer buttons */
+.footer-buttons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.sign-in-button, .log-in-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #ff5733;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.sign-in-button:hover, .log-in-button:hover {
+  background-color: #e5482f;
+}
+
+/* Style the copyright section */
+.footer-bottom {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 12px;
+}
+
+/* Style the language dropdown */
+.language-dropdown {
+  text-align: center;
+}
+
+.dropdown-button {
+  background-color: #333;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.language-option {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Show the dropdown when the button is hovered */
+.dropdown-button:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<div id="header">
+ 
+
+
+
+
+  <div class="shell">
+    
+  
+    <div id="top">
+       
+        <h1>The <abbr title="Space and Upper Atmosphere Research Commission">SUPARCO</abbr> </h1>
+
+      <div id="top-navigation"><a href="#">Welcome!</a> <a href="#"><strong>Administrator</strong></a> <span>|</span> <a href="#">Help</a> <span>|</span> <a href="#">Profile Settings</a> <span>|</span> <a href="#">Log out</a> </div>
+    </div>
+  
+    <div id="navigation">
+        <ul>
+          <li><a href="#" class="active"><span>Dashboard</span></a></li>
+          <li><a href="#"><span>Assignment</span></a></li>
+          <li><a href="#"><span>User Details <span></a></li>
+         
+        </ul>
+      <div id="top-navigations">
+        
+        <a class="sign-in-button" href="#">Sign In</a>
+        <a class="log-in-button" href="#">Log In</a>
+      </div>
+      
+          </div>
+ 
+  </div>
+</div>
+
+<div id="container">
+  <div class="shell">
+
+    <div class="small-nav"> <a href="#">Dashboard</a> <span>&gt;</span> Current Articles </div>
+ 
+   <div class="uploader">
+    <div class="msg msg-ok">
+      <p><strong>Your file was uploaded succesfully!</strong></p>
+      <a href="#" class="close">close</a> </div> 
+   
+    <div class="msg msg-error">
+      <p><strong>You must select a file to upload first!</strong></p>
+      <a href="#" class="close">close</a> </div>
+   
+   </div>
+    <br />
+    <div id="main">
+      <div class="cl">&nbsp;</div>
+    
+      <div id="content">
+    
+        <div class="box">
+       
+          <div class="box-head">
+            <h2 class="left">User Management</h2>
+            <div class="right">
+              <label>search user</label>
+              <input type="text" class="field small-field" />
+              <input type="submit" class="button" value="search" />
+            </div>
+          </div>
+        
+    
+          <div class="table">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <th width="13"><input type="checkbox" class="checkbox" /></th>
+                <th>S.no</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+                <th>Action</th>
+                <th>Website</th>
+                <th width="110" class="ac">Content Control</th>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">1</a></h3></td>
+                <td>fahad</td>
+                <td><a href="#">fahadalamsaqibi@gmail.com</a></td>
+                <td><a href="#" class="ico del">0312-2428678</a></td>
+                <td><a href="#" class="ico del">See Post</a></td>
+                <td>The <abbr title="Space and Upper Atmosphere Research Commission">SUPARCO</abbr> </td>
+                <td><a href="#" class="ico edit">Edit</a> <a href="#" class="ico delete">Delete</a></td>
+              </tr>
+              <tr class="odd">
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">2</a></h3></td>
+                <td>fakhir</td>
+                <td><a href="#">fahadalamsaqibi@gmail.com</a></td>
+                <td><a href="#" class="ico del">0312-2428678</a></td>
+                <td><a href="#" class="ico del">See Post</a></td>
+                <td>The <abbr title="Space and Upper Atmosphere Research Commission">SUPARCO</abbr> </td>
+                <td><a href="#" class="ico edit">Edit</a> <a href="#" class="ico delete">Delete</a></td>
+                
+
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">3</a></h3></td>
+                <td>sharjeel</td>
+                <td><a href="#">fahadalamsaqibi@gmail.com</a></td>
+                <td><a href="#" class="ico del">0312-2428678</a></td>
+                <td><a href="#" class="ico del">See Post</a></td>
+                <td>The <abbr title="Space and Upper Atmosphere Research Commission">SUPARCO</abbr> </td>
+                <td><a href="#" class="ico edit">Edit</a> <a href="#" class="ico delete">Delete</a></td>
+              </tr>
+              <tr class="odd">
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">4</a></h3></td>
+                <td>Maaz</td>
+                <td><a href="#">fahadalamsaqibi@gmail.com</a></td>
+                <td><a href="#" class="ico del">0312-2428678</a></td>
+                <td><a href="#" class="ico del">See Post</a></td>
+                <td>The <abbr title="Space and Upper Atmosphere Research Commission">SUPARCO</abbr> </td>
+                <td><a href="#" class="ico edit">Edit</a> <a href="#" class="ico delete">Delete</a></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">5</a></h3></td>
+                <td>Naseer</td>
+                <td><a href="#">fahadalamsaqibi@gmail.com</a></td>
+                <td><a href="#" class="ico del">0312-2428678</a></td>
+                <td><a href="#" class="ico del">See Post</a></td>
+                <td>The <abbr title="Space and Upper Atmosphere Research Commission">SUPARCO</abbr> </td>
+                <td><a href="#" class="ico edit">Edit</a> <a href="#" class="ico delete">Delete</a></td>
+              </tr>
+              <tr class="odd">
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">6</a></h3></td>
+                <td>Ahad</td>
+                <td><a href="#">fahadalamsaqibi@gmail.com</a></td>
+                <td><a href="#" class="ico del">0312-2428678</a></td>
+                <td><a href="#" class="ico del">See Post</a></td>
+                <td>The <abbr title="Space and Upper Atmosphere Research Commission">SUPARCO</abbr> </td>
+                <td><a href="#" class="ico edit">Edit</a> <a href="#" class="ico delete">Delete</a></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">7</a></h3></td>
+                <td>Touseef</td>
+                <td><a href="#">fahadalamsaqibi@gmail.com</a></td>
+                <td><a href="#" class="ico del">0312-2428678</a></td>
+                <td><a href="#" class="ico del">See Post</a></td>
+                <td>The <abbr title="Space and Upper Atmosphere Research Commission">SUPARCO</abbr> </td>
+                <td><a href="#" class="ico edit">Edit</a> <a href="#" class="ico delete">Delete</a></td>
+              </tr>
+              <tr class="odd">
+                <td><input type="checkbox" class="checkbox" /></td>
+                <td><h3><a href="#">8</a></h3></td>
+                <td>Zain</td>
+                <td><a href="#">fahadalamsaqibi@gmail.com</a></td>
+                <td><a href="#" class="ico del">0312-2428678</a></td>
+                <td><a href="#" class="ico del">See Post</a></td>
+                <td>The <abbr title="Space and Upper Atmosphere Research Commission">SUPARCO</abbr> </td>
+                <td><a href="#" class="ico edit">Edit</a> <a href="#" class="ico delete">Delete</a></td>
+              </tr>
+            </table>
+          
+            <div class="pagging">
+              <div class="left">Showing 1-12 of 44</div>
+              <div class="right"> <a href="#">Previous</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">245</a> <span>...</span> <a href="#">Next</a> <a href="#">View all</a> </div>
+            </div>
+           
+          </div>
+        
+        </div>
+   
+        <div class="box">
+        
+          <div class="box-head">
+            <h2>Add Comments</h2>
+          </div>
+          
+          <form action="#" method="post">
+         
+            <div class="form">
+              <p> <span class="req">max 100 symbols</span>
+                <label> Title <span>(Required Field)</span></label>
+                <input type="text" class="field size1" />
+              </p>
+              <p class="inline-field">
+                <label>Date</label>
+                <select class="field size2">
+                  <option value="">23</option>
+                </select>
+                <select class="field size3">
+                  <option value="">Oct</option>
+                </select>
+                <select class="field size3">
+                  <option value="">2023</option>
+                </select>
+              </p>
+              <p> <span class="req">max 100 symbols</span>
+                <label>Content <span>(Required Field)</span></label>
+                <textarea class="field size1" rows="10" cols="30"></textarea>
+              </p>
+            </div>
+            <!-- End Form -->
+            <!-- Form Buttons -->
+            <div class="buttons">
+              <input type="button" class="button" value="preview" />
+              <input type="submit" class="button" value="submit" />
+            </div>
+            <!-- End Form Buttons -->
+          </form>
+        </div>
+        <hr>
+        <div class="footer-content">
+            <section class="footer-section">
+                <h1>About Us</h1>
+
+                <h5>"Welcome to our admin panel, where efficiency meets control. Our platform empowers you to manage and monitor with ease, delivering a seamless user experience."<br>
+
+                  <br>     "Discover the backbone of our admin panel. Established with a passion for simplifying tasks, we've been enhancing your admin capabilities.<br><br>
+                  
+                  "Explore the heart of our admin interface. With a commitment to precision and user-friendliness, we pave the way for your success."</h5>
+            </section>
+            <section class="footer-section">
+               <h1>Contact Us</h1>
+                <h5>Email: admin@example.com</h5>
+                <h5>Phone: +92 3272748498</h5>
+                <h5>Tel: 01647 632006</h5>
+            </section>
+            <section class="footer-section">
+                <h1> INFORMATION</h1>
+                 <h5>Announcement</h5>
+                 <h5>Privacy Policy </h5>
+                 <h5> Discussion</h5> 
+                <h5>  People</h5>
+                 <h5>Grade </h5>
+                <h5> Page </h5> 
+                <h5> File </h5>               
+                 <h5> Syllabus</h5>
+                <h5>Modules </h5>
+               <h5>Terms & Conditions</h5>
+                 
+               
+             </section>
+            <section class="footer-section">
+                <h1>Links</h1>
+                <ul class="navbarr">
+                    <li class="social-media"><a href="https://www.facebook.com/"><img src="https://w7.pngwing.com/pngs/561/460/png-transparent-fb-facebook-facebook-logo-social-media-icon.png" alt="Facebook"></a></li><br>
+            <li class="social-media"><a href="https://www.instagram.com/"><img src="https://img.freepik.com/premium-vector/purple-gradiend-social-media-logo_197792-1883.jpg" alt="Instagram"></a></li><br>
+            <li class="social-media"><a href="https://github.com/"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub"></a></li><br>
+            <li class="social-media"><a href="https://twitter.com/"><img src="https://img.freepik.com/premium-vector/new-twitter-logo-x-2023-twitter-x-logo-vector-download_691560-10809.jpg" alt="Twitter"></a></li>
+              <li class="social-media"><a href="https://www.youtube.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/YouTube_play_button_square_%282013-2017%29.svg/640px-YouTube_play_button_square_%282013-2017%29.svg.png" alt="Youtube"></a></li>        
+        </ul>
+        <h5>Contact us with our social-Links..</h5>
+<br><br><br>
+               <div class="footer-buttons">
+      <a class="sign-in-button" href="#">Sign In</a>
+      <a class="log-in-button" href="#">Log In</a>
+      <h5>Get exclusive assets sent straight to your inbox.</h5>
+    </div>
+
+            </section>
+         
+        </div>
+        <hr>
+        <div class="footer-bottom">
+            
+            <blockquote><h1>The <abbr title="Space and Upper Atmosphere Research Commission">SUPARCO</abbr> </h1>
+                <h5>&copy; Copyright  Admin Panel All rights reserved.</h5>
+            </blockquote> </div>
+
+           
+
+            <div class="footer-contentss">
+                <div class="language-dropdown">
+                  <button class="dropdown-button" id="languageDropdown">Select Language</button>
+                  <div class="dropdown-content" id="languageDropdownContent">
+                    <a href="#" class="language-option" data-lang="en">English</a>
+                    <a href="#" class="language-option" data-lang="es">Spanish</a>
+                    <a href="#" class="language-option" data-lang="fr">French</a>
+                    <a href="#" class="language-option" data-lang="de">German</a>
+                    <a href="#" class="language-option" data-lang="zh">Chinese</a>
+                 
+                  </div>
+                </div>
+              </div>
+             </footer> 
+      </div>
+     
+    
+</body>
+</html>
